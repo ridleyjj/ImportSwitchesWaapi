@@ -22,7 +22,7 @@ class FolderSearcher:
             audio_file_path = os.path.join(switch_path, audio_file)
             if os.path.isfile(audio_file_path):
                 for switch_name in switch_name_list:
-                    self.event_dict[event_name][switch_group_name][switch_name].add(audio_file_path) # save full path to make import easier later
+                    self.event_dict[event_name][switch_group_name][switch_name].add(os.path.abspath(audio_file_path)) # save full absolute path to make import easier later
 
     def search_for_switches(self, event_name, switch_group_name, switch_group_path):
         for switch_name_list in os.listdir(switch_group_path):
